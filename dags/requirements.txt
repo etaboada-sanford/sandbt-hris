@@ -1,0 +1,7 @@
+astronomer-cosmos==1.0.3
+dbt-core==1.8.2
+dbt-fabric==1.8.6
+apache-airflow-providers-microsoft-mssql
+apache-airflow-providers-odbc[common.sql]
+sqlfluff ~= 3.1.0
+sqlfluff-templater-dbt ~= 3.1.0
