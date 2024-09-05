@@ -14,7 +14,7 @@ default_args = {
 
 # Instantiate the DAG object
 with DAG(
-    'hello_world_dag',
+    'outer_dag',
     default_args=default_args,
     description='A simple Hello World DAG',
     schedule_interval=None,
@@ -22,10 +22,10 @@ with DAG(
 ) as dag:
 
     # Define the tasks
-    hello_task = BashOperator(
-        task_id='hello_world_task',
+    outer_task = BashOperator(
+        task_id='outer_world_task',
         bash_command='cat /opt/airflow/airflow.cfg'
     )
 
     # Set the task dependencies
-    hello_task
+    outer_task
