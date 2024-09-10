@@ -1,3 +1,5 @@
+config:
+  partial_parse: true
 fabric_d365:
   outputs:
     dev:
