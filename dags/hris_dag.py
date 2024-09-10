@@ -53,10 +53,22 @@ with DAG(
     )
 
     # Define the tasks
-    ls_airflow_git2_task = BashOperator(
-        task_id='ls_airflow_git2_task',
-        bash_command='ls /opt/airflow/dags/bc5f1fe3c00b3d84917723b5b2ed6cf4dad8807c'
+    ls_echo_dagsfolder_task = BashOperator(
+        task_id='ls_echo_dagsfolder_task',
+        bash_command='echo $DAGS_FOLDER'
+    )
+
+    # Define the tasks
+    ls_echo_dagsfolder_task = BashOperator(
+        task_id='ls_echo_dagsfolder_task',
+        bash_command='echo $DAGS_FOLDER'
+    )
+
+    # Define the tasks
+    ls_echo_dagsfolder2_task = BashOperator(
+        task_id='ls_echo_dagsfolder_task',
+        bash_command='echo $AIRFLOW__CORE__DAGS_FOLDER'
     )
 
     # Set the task dependencies
-    pwd_task >> ls_task >> ls_airflow_task >> ls_airflow_git_task >> ls_airflow_dags_task >> ls_airflow_git2_task
+    ls_airflow_dags_task >> ls_echo_dagsfolder_task >> ls_echo_dagsfolder2_task
