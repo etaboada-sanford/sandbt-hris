@@ -40,5 +40,17 @@ with DAG(
         bash_command='ls /opt/airflow'
     )
 
+    # Define the tasks
+    ls_airflow_git_task = BashOperator(
+        task_id='ls_airflow_git_task',
+        bash_command='ls /opt/airflow/git'
+    )
+
+    # Define the tasks
+    ls_airflow_dags_task = BashOperator(
+        task_id='ls_airflow_dags_task',
+        bash_command='ls /opt/airflow/dags'
+    )
+
     # Set the task dependencies
-    pwd_task >> ls_task >> ls_airflow_task
+    pwd_task >> ls_task >> ls_airflow_task >> ls_airflow_git_task >> ls_airflow_dags_task
