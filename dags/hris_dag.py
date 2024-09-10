@@ -16,7 +16,7 @@ default_args = {
 with DAG(
     'the_new_ls_dag',
     default_args=default_args,
-    description='A simple Hello World DAG',
+    description='A simple DAG World DAG',
     schedule_interval=None,
     catchup=False
 ) as dag:
@@ -59,10 +59,16 @@ with DAG(
     )
 
     # Define the tasks
-    ls_echo_dagsfolder2_task = BashOperator(
-        task_id='ls_echo_dagsfolder2_task',
-        bash_command='echo $AIRFLOW__CORE__DAGS_FOLDER'
+    ls_cd_dagsfolder_task = BashOperator(
+        task_id='ls_cd_dagsfolder_task',
+        bash_command='cd $AIRFLOW__CORE__DAGS_FOLDER'
+    )
+
+    # Define the tasks
+    ls_dbt_debug_task = BashOperator(
+        task_id='ls_dbt_debug_task',
+        bash_command='dbt debug'
     )
 
     # Set the task dependencies
-    ls_airflow_dags_task >> ls_echo_dagsfolder_task >> ls_echo_dagsfolder2_task
+    ls_airflow_dags_task >> ls_echo_dagsfolder_task >> ls_cd_dagsfolder_task >> ls_dbt_debug_task
