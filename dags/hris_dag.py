@@ -41,4 +41,4 @@ with DAG(
     )
 
     # Set the task dependencies
-    pwd_task > ls_task > ls_airflow_task
+    pwd_task >> ls_task >> ls_airflow_task
