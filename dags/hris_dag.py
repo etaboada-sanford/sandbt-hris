@@ -67,7 +67,7 @@ with DAG(
     # Define the tasks
     ls_dbt_debug_task = BashOperator(
         task_id='ls_dbt_debug_task',
-        bash_command='dbt debug'
+        bash_command='pip list'
     )
 
     # Set the task dependencies
