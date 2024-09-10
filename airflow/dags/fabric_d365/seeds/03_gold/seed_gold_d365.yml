@@ -1,0 +1,26 @@
+version: 2
+
+seeds:
+  - name: dim_d365_consolidationcompanies
+    config:
+      meta:
+        owner: kaushal
+        tags: ["d365", "static_data"]
+
+  - name: dim_d365_age_category
+    config:
+      meta:
+        owner: kaushal
+        tags: ["d365", "static_data"]
+
+  - name: dim_d365_exp_month_category
+    config:
+      meta:
+        owner: kaushal
+        tags: ["d365", "static_data"]
+
+  - name: dim_d365_inventvalue_category
+    config:
+      meta:
+        owner: kaushal
+        tags: ["d365", "static_data"]

@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: stg_d365_consolidationcompanies
+    config:
+      meta:
+        owner: kaushal
+        tags: ["d365", "static_data"]
+      column_types:
+        company_dataarea: varchar(10)
+        consolidated_parent_co_dataarea: varchar(10)

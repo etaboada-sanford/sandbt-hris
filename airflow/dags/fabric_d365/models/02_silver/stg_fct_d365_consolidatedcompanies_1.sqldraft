@@ -1,0 +1,16 @@
+select
+
+    company_origin.dim_d365_company_sk as dim_d365_company_origin_sk
+    , company_parent.dim_d365_company_sk as dim_d365_company_parent_sk
+    , company_origin.company_dataarea
+    , company_origin.company_name
+    , company_parent.company_dataarea as company_dataarea_parent
+    , company_parent.company_name as company_name_parent
+
+
+from {{ source('mserp', 'ledgerconsolidatehist') }} as h
+
+left join {{ ref('dim_d365_company') }} as company_origin on company_origin.company_dataarea = upper(h.mserp_companyidorigin)
+left join {{ ref('dim_d365_company') }} as company_parent on company_parent.company_dataarea = upper(h.mserp_dataareaid)
+
+where h.isdelete is null

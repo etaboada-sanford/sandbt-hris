@@ -1,0 +1,8 @@
+dim_d365_customer_sk,customer_recid,accountnum,invoiceaccount,ouraccountnum,orgnumber,name,party_recid,custgroup,salesdistrictid,salesdistrictgroupdesc,blocked,pricegroup,defaultdimension_recid,customer_dataareaid,IsDelete,versionnumber,sysrowversion
+8240344c8807a2e0d0e3cfc001e94350,-999999,NAVEXP00,NAVEXP00,,,Navision not migrated - EXPORT,,EXPORT,,,,,,SANF,,0,0
+51e4735909928cc98cded56dd4041c43,-999998,NAVRET00,NAVRET00,,,Navision not migrated - RETAIL,,RETAIL,,,,,,SANF,,0,0
+ef6735c9ec423cc0b690b1946ac2093f,-999997,NAVWSL00,NAVWSL00,,,Navision not migrated - WSALE,,WSALE,,,,,,SANF,,0,0
+cedc8d6a99b2cd59bf28a6b280c7fe2a,-999996,NAVFMS00,NAVFMS00,,,Navision not migrated - FARMSERV,,FARMSERV,,,,,,SANF,,0,0
+7d51dbdbf31be39e9b49a09bb945554d,-999995,NAVINT00,NAVINT00,,,Navision not migrated - INTERNAL,,INTERNAL,,,,,,SANF,,0,0
+7def9242f45be4440f5d772a2f0630bc,-999994,NAVLCL00,NAVLCL00,,,Navision not migrated - LOCAL,,LOCAL,,,,,,SANF,,0,0
+b2b86a73c301a6aa6ebce18953d87678,-999993,NAVUND00,NAVUND00,,,Navision not migrated - UNDEFINED,,LOCAL,,,,,,SANF,,0,0

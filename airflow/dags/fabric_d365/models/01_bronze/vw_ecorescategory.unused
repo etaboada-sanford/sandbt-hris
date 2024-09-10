@@ -1,0 +1,30 @@
+/* Note: This view is unusable because the table pcclass cannot be selected for export in our setup */
+
+select
+    [EcoResCategory].[ServiceAccountingCodeTable_IN]
+    , [EcoResCategory].[PKWiUCode]
+    , [EcoResCategory].[ParentCategory]
+    , [EcoResCategory].[NonGST_IN]
+    , [EcoResCategory].[NestedSetRight]
+    , [EcoResCategory].[NestedSetLeft]
+    , [EcoResCategory].[Name]
+    , [EcoResCategory].[Level]
+    , [EcoResCategory].[IsTangible]
+    , [EcoResCategory].[IsCategoryAttributesInherited]
+    , [EcoResCategory].[IsActive]
+    , [EcoResCategory].[InstanceRelationType]
+    , [EcoResCategory].[HSNCodeTable_IN]
+    , [EcoResCategory].[ForceFullLookupSync]
+    , [EcoResCategory].[ExternalId]
+    , [EcoResCategory].[Exempt_IN]
+    , [EcoResCategory].[DXC_UnderDeliveryPct]
+    , [EcoResCategory].[DXC_OverDeliveryPct]
+    , [EcoResCategory].[DisplayOrder]
+    , [EcoResCategory].[DefaultThreshold_PSN]
+    , [EcoResCategory].[DefaultProjectGlobalCategory]
+    , [EcoResCategory].[Code]
+    , [EcoResCategory].[ChangeStatus]
+    , [EcoResCategory].[CategoryHierarchy]
+    --, [PCClass].[ReuseEnabled]
+from ecorescategory as ecorescategory
+--left outer join pcclass as pcclass on ecorescategory.recid = pcclass.recid

@@ -1,0 +1,168 @@
+models:
+  - name: dim_d365_address
+    description: The 'dim_d365_address' model is a dimension table that contains
+      address-related information. It includes columns for the unique record
+      identifier (address_recid), address, city, city record identifier
+      (cityrecid), country or region identifier (countryregionid), county,
+      district, district name, privacy status of the address
+      (address_isprivate), geographical coordinates (latitude, longitude),
+      state, street, validity period (validfrom, validto), validity status
+      (isvalid), zip code, post box, export delivery terms
+      (dxc_exportdeliveryterms), delivery zone (dxc_deliveryzone), location code
+      (dxc_locationcode), partition, and deletion status (IsDelete). The data is
+      sourced from the 'logisticspostaladdress' table in the Dynamics 365
+      Finance and Operations Dataverse. The model filters out records where the
+      'IsDelete' field is NULL.
+    columns:
+      - name: address_recid
+        description: The unique record ID for each address entry in the
+          logisticspostaladdress table.
+        data_type: bigint
+        quote: true
+      - name: address
+        description: The full address details for each record. This includes the street
+          name, city, state, and zip code.
+        data_type: varchar
+        quote: true
+      - name: city
+        description: The city where the address is located.
+        data_type: varchar
+        quote: true
+      - name: cityrecid
+        description: The 'cityrecid' column is a unique identifier for the city
+          associated with the address. This is a foreign key that can be used to
+          join with other tables containing city information.
+        data_type: bigint
+        quote: true
+      - name: countryregionid
+        description: The 'countryregionid' column is a unique identifier for the country
+          or region associated with the address. This is stored in uppercase.
+          This is a foreign key that can be used to join with other tables
+          containing country or region information.
+        data_type: varchar
+        quote: true
+      - name: county
+        description: The 'county' column contains the name of the county associated with
+          the address. This can be used for more granular geographical analysis
+          within a specific country or region.
+        data_type: varchar
+        quote: true
+      - name: district
+        description: The 'district' column represents the district code of the address.
+          It is a string type field extracted from the logisticspostaladdress
+          table.
+        data_type: bigint
+        quote: true
+      - name: districtname
+        description: The 'districtname' column represents the name of the district where
+          the address is located. It is a string type field extracted from the
+          logisticspostaladdress table.
+        data_type: varchar
+        quote: true
+      - name: address_isprivate
+        description: The 'address_isprivate' column is a boolean field that indicates
+          whether the address is private or not. A value of 1 indicates that the
+          address is private, while a value of 0 indicates that it is not.
+        data_type: bigint
+        quote: true
+      - name: latitude
+        description: The latitude column represents the latitude coordinate of the
+          address. It is a numerical value that indicates the north-south
+          position of a point on the Earth's surface.
+        data_type: decimal
+        quote: true
+      - name: longitude
+        description: The longitude column represents the longitude coordinate of the
+          address. It is a numerical value that indicates the east-west position
+          of a point on the Earth's surface.
+        data_type: decimal
+        quote: true
+      - name: state
+        description: The state column represents the state in which the address is
+          located. It is a string value that contains the name or abbreviation
+          of the state.
+        data_type: varchar
+        quote: true
+      - name: street
+        description: The 'street' column contains the street name of the address. It is
+          a string type column extracted from the 'logisticspostaladdress' table
+          in the source database.
+        data_type: varchar
+        quote: true
+      - name: validfrom
+        description: The 'validfrom' column represents the start date from which the
+          address is considered valid. It is a date type column extracted from
+          the 'logisticspostaladdress' table in the source database.
+        data_type: datetime2
+        quote: true
+      - name: validto
+        description: The 'validto' column represents the end date until which the
+          address is considered valid. It is a date type column extracted from
+          the 'logisticspostaladdress' table in the source database. If the
+          'validto' date is greater than or equal to the current date, or if it
+          is null, then the 'isvalid' column is set to 1, indicating that the
+          address is currently valid.
+        data_type: datetime2
+        quote: true
+      - name: isvalid
+        description: The isvalid column is a binary flag that indicates whether the
+          address is currently valid. A value of 1 indicates that the address is
+          valid, while a value of 0 indicates that the address is not valid. The
+          validity of an address is determined based on the validto date; if the
+          validto date is in the future or is null, the address is considered
+          valid.
+        data_type: int
+        quote: true
+      - name: zipcode
+        description: The zipcode column contains the postal code for the address. This
+          is a string value that can include numbers, letters, and special
+          characters, depending on the postal code system used in the country of
+          the address.
+        data_type: varchar
+        quote: true
+      - name: postbox
+        description: The postbox column contains the post office box number for the
+          address, if applicable. This is a string value that can include
+          numbers, letters, and special characters. If the address does not have
+          a post office box, this column may be null.
+        data_type: varchar
+        quote: true
+      - name: dxc_exportdeliveryterms
+        description: The export delivery terms associated with the address. This field
+          is sourced from the 'logisticspostaladdress' table in the
+          'dataverse_sanfordsit_cds2_workspace_unqf87dd056b3bf4075bf970702376af'
+          database.
+        data_type: bigint
+        quote: true
+      - name: dxc_deliveryzone
+        description: The delivery zone associated with the address. This field is
+          sourced from the 'logisticspostaladdress' table in the
+          'dataverse_sanfordsit_cds2_workspace_unqf87dd056b3bf4075bf970702376af'
+          database.
+        data_type: varchar
+        quote: true
+      - name: dxc_locationcode
+        description: The location code associated with the address. This field is
+          sourced from the 'logisticspostaladdress' table in the
+          'dataverse_sanfordsit_cds2_workspace_unqf87dd056b3bf4075bf970702376af'
+          database.
+        data_type: varchar
+        quote: true
+      - name: partition
+        description: The 'partition' column is a system-generated identifier used for
+          data partitioning. It helps in managing and organizing the data more
+          efficiently, especially in large databases.
+        data_type: bigint
+        quote: true
+      - name: IsDelete
+        description: The 'IsDelete' column is a flag that indicates whether the record
+          has been deleted or not. If the value is NULL, it means the record is
+          not deleted.
+        data_type: bit
+        quote: true
+    tests:
+      - dbt_expectations.expect_table_column_count_to_be_between:
+          min_value: 1 # (Optional)
+          max_value: 4 # (Optional)
+      - column_existence:
+          columns: ['isDelete', 'versionnumber', 'sysrowversion']

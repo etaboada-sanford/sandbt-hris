@@ -1,0 +1,76 @@
+version: 2
+
+sources:
+  - name: nav
+    description: Navision sources - Model
+    database: mdb_snowflake
+    schema: dbo
+    quoting:
+      identifier: true
+    tables:
+      - name: v_fct_sales
+        identifier: v_fct_sales
+        description: "Navision/WiseFish legacy Sales fact view"
+      - name: fct_trade_item
+        description: "Navision/WiseFish legacy Trade Item fact"
+      - name: dim_vessel
+        description: "Navision/WiseFish legacy Vessel dim"
+      - name: dim_fishing_trip
+        identifier: MODEL_dim_fishing_trip
+        description: "Navision/WiseFish legacy Fishing Trip dim"
+      - name: dim_producer
+        identifier: MODEL_dim_producer
+        description: "Navision/WiseFish legacy Producer dim"
+      - name: fct_wiseitem_bom
+        identifer: MODEL_fct_wiseitem_bom
+        description: "Navision/WiseFish legacy Item BOM fact"
+      - name: dim_date
+        identifier: MODEL_fct_wiseitem_bom
+        description: "Navision/WiseFish legacy Date dim"
+      - name: fct_collection_entry
+        identifier: MODEL_fct_collection_entry
+        description: "Navision/WiseFish legacy Collection Entry fact"
+      - name: fct_collection_header
+        indentifier: MODEL_fct_collection_header
+        description: "Navision/WiseFish legacy Collection Header fact"
+      - name: fct_collection_cost
+        identifier: MODEL_fct_collection_cost
+        description: "Navision/WiseFish legacy Collection Cost fact"
+
+  - name: navision_presentation
+    description: Navision sources - Presentation
+    database: edw_prod
+    schema: presentation
+    quoting:
+      identifier: true
+    tables:
+      - name: v_dim_product
+        description: "Navision/WiseFish legacy Product dim view"
+
+  - name: navision_reference_data
+    description: Navision sources - reference_data
+    database: edw_prod
+    schema: reference_data
+    quoting:
+      identifier: false
+    tables:
+      - name: vw_dim_company
+        description: "Navision/WiseFish legacy Company dim view"
+      - name: vw_dim_cost_centre
+        description: "Navision/WiseFish legacy Cost Centre dim view"
+      - name: vw_dim_country
+        description: "Navision/WiseFish legacy Country dim view"
+      - name: vw_dim_customer
+        description: "Navision/WiseFish legacy Customer dim view"
+      - name: vw_dim_division
+        description: "Navision/WiseFish legacy Division dim view"
+      - name: vw_dim_g_l_account
+        description: "Navision/WiseFish legacy G/L Account dim view"
+      - name: vw_dim_nav_product
+        description: "Navision/WiseFish legacy Product dim view"
+      - name: vw_fct_sales
+        description: "Navision/WiseFish legacy Sales fact view"
+      - name: country_mapping
+        description: "Navision/WiseFish legacy country_mapping view"
+      - name: product_list
+        description: "Navision/WiseFish legacy product_list view"

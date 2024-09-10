@@ -1,0 +1,79 @@
+with ctlp as (
+    select
+        whs.[Id] as dim_d365_licenseplate_sk
+        , whs.recid as licenseplate_recid
+        , whs.licenseplateid
+        , whs.dxc_numberofbins
+        , whs.eglaqcdispositioncode
+        , cdatetime.newzealandtime as createddatetime
+        , whs.partition
+        , whs.[IsDelete]
+        , convert(date, whs.agingdate) as agingdate
+        , upper(whs.dataareaid) as licenseplate_dataareaid
+    from {{ source('fno', 'whslicenseplate') }} as whs
+    cross apply dbo.ConvertUtcToNzt(createddatetime) as cdatetime
+    where whs.[IsDelete] is null
+)
+/* UNCOMMENT WHE THE FNO TABLES BECOMES AVAILABLE
+, ctagg as (
+    select
+        transrefid as licenseplate
+        , replace(
+            replace(
+                listagg(
+                    distinct concat(dxc_inventdispositionreasoncode , '#' , dxc_lpdispositiondetails), '|')
+                WITHIN GROUP (ORDER BY concat(dxc_inventdispositionreasoncode , '#' , dxc_lpdispositiondetails)), '|',
+                char(10)), '#', char(9)) as lpdispositiondetails_history
+    from  sour ce(' fno', 'eglaqcinventdimdispositionhistory')  e
+    where
+        e.[IsDelete] is null
+        and (coalesce(dxc_inventdispositionreasoncode, '') != '' or coalesce(dxc_lpdispositiondetails, '') != '')
+    group by
+        transrefid
+)
+
+, ct1 as (
+    select *
+    from (
+        select
+        egh.transrefid
+        , egh.dxc_inventdispositionreasoncode inventdispositionreasoncode
+        , egh.dxc_lpdispositiondetails lpdispositiondetails
+        , cdatetime.NewZealandTime as createddatetime
+        , rank() over (partition by transrefid order by createddatetime desc, recid desc ) rnk
+    from  source('fno', 'eglaqcinventdimdispositionhistory')  egh
+    cross apply dbo.ConvertUtcToNzt(createddatetime) as cdatetime
+    where coalesce(dxc_inventdispositionreasoncode, '') != '' or coalesce(dxc_lpdispositiondetails, '') != ''
+    )
+    x where rnk =1
+)
+
+, cthist as (
+    select
+        ct1.* ,
+        case when ctagg.lpdispositiondetails_history = '' then null else lpdispositiondetails_history end lpdispositiondetails_history
+    from ct1
+    left join ctagg on ct1.transrefid = ctagg.licenseplate
+)
+*/
+
+select
+    ctlp.*
+    , cthist.lpdispositiondetails_history
+    , case when coalesce(ctlp.eglaqcdispositioncode, '') in ('', 'Available') then null else cthist.inventdispositionreasoncode end as inventdispositionreasoncode
+    , case when coalesce(ctlp.eglaqcdispositioncode, '') in ('', 'Available') then null else cthist.lpdispositiondetails end as lpdispositiondetails
+
+    , convert(date, case when ctlp.eglaqcdispositioncode = 'QCHOLD' then coalesce(cthist.createddatetime, ctlp.createddatetime) end) as qchold_date
+
+    /* where batch put on QC hold today or yesterday , when today sat, sun, or mon include back to friday in y'day */
+    , case when qchold_date = convert(date, getdate()) then 1 else 0 end as qchold_today
+    , case
+        when qchold_date = convert(date, dateadd(d, -1, getdate())) then 1
+        when dt_today.day_abbrev = 'Sun' and qchold_date between convert(date, dateadd(d, -2, getdate())) and convert(date, dateadd(d, -1, getdate())) then 1
+        when dt_today.day_abbrev = 'Mon' and qchold_date between convert(date, dateadd(d, -3, getdate())) and convert(date, dateadd(d, -1, getdate())) then 1
+        else 0
+    end as qchold_yesterday
+
+from ctlp
+left join cthist on ctlp.licenseplateid = cthist.transrefid
+inner join {{ ref('dim_date') }} as dt_today on convert(date, getdate()) = dt_today.calendar_date

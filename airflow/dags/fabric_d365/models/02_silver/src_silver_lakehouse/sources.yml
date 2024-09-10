@@ -1,0 +1,25 @@
+version: 2
+sources:
+- name: stage
+  schema: dbo
+  database: lh_staging
+  description: D365 FNO staging tables for reporting
+  tables:
+  - name: stg_d365_company
+  - name: stg_d365_category
+  - name: chart_of_accounts
+  - name: company_list
+  - name: cost_centres
+  - name: country_mapping
+  - name: currency_rates_cube
+  - name: customer_lookup
+  - name: external_company_mappings
+  - name: general_ledger
+  - name: lookup_producer
+  - name: lookup_sales_standard_cost
+  - name: lookup_sitewarehouse
+  - name: pl_budget
+  - name: product_list
+  - name: raw_material_cost_breakdown
+  - name: sales_allocations
+  - name: sales_rules_to_p_l

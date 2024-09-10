@@ -1,0 +1,159 @@
+version: 2
+
+seeds:
+  - name: stg_nav_financialdimensionvalueset
+    config:
+      meta:
+        owner: kaushal
+        tags: ["int_d365_dimensionattributevalueset", "navision", "static_data"]
+      column_types:
+        dim_d365_financialdimensionvalueset_sk: varchar(8000)
+        financialdimensionvalueset_recid : bigint
+        dimension_ledgeraccount: varchar(8000)
+        mainaccount : bigint
+        mainaccountvalue: varchar(8000)
+        mainaccountname: varchar(8000)
+        d1_businessunit : bigint
+        d1_businessunitvalue: varchar(8000)
+        d1_businessunit_name: varchar(8000)
+        d2_costcenter : bigint
+        d2_costcentervalue: varchar(8000)
+        d2_costcenter_name: varchar(8000)
+        d4_function : bigint
+        d4_functionvalue: varchar(8000)
+        d4_function_name: varchar(8000)
+        d3_department : bigint
+        d3_departmentvalue: varchar(8000)
+        d3_department_name: varchar(8000)
+        d5_customer : bigint
+        d5_customervalue: varchar(8000)
+        d5_customer_name: varchar(8000)
+        d6_vendor : bigint
+        d6_vendorvalue: varchar(8000)
+        d6_vendor_name: varchar(8000)
+        d7_project : bigint
+        d7_projectvalue: varchar(8000)
+        d8_legalentity : bigint
+        d8_legalentityvalue: varchar(8000)
+        partition : varchar(8000)
+        dimension_ledgeraccount_text: varchar(8000)
+        IsDelete: bit
+        versionnumber: bigint
+        sysrowversion: bigint
+
+  - name: stg_nav_dummy_custgroup
+    config:
+      meta:
+        owner: kaushal
+        tags: ["navision", "static_data"]
+      column_types:
+        dim_d365_customer_sk: varchar(8000)
+        customer_recid: bigint
+        accountnum: varchar(8000)
+        invoiceaccount: varchar(8000)
+        ouraccountnum: varchar(8000)
+        orgnumber: varchar(8000)
+        name: varchar(8000)
+        party_recid: bigint
+        custgroup: varchar(8000)
+        salesdistrictid: varchar(8000)
+        salesdistrictgroupdesc: varchar(8000)
+        blocked: varchar(8000)
+        pricegroup: varchar(8000)
+        defaultdimension_recid: bigint
+        customer_dataareaid: varchar(8000)
+        IsDelete: bit
+        versionnumber: bigint
+        sysrowversion: bigint
+        
+  - name: stg_nav_dummy_salesitem
+    config:
+      meta:
+        owner: kaushal
+        tags: ["navision", "static_data"]
+      column_types:
+        dim_d365_item_sk: varchar(8000)
+        item_recid: bigint
+        item_dataareaid: varchar(8000)
+        itemid: varchar(8000)
+        namealias: varchar(8000)
+        item_name: varchar(8000)
+        item_desc: varchar(8000)
+        itemtype: bigint
+        itemtype_desc: varchar(8000)
+        itemgroupid: varchar(8000)
+        itemgroup_name: varchar(8000)
+        itemstoragedimensiongroupid: varchar(8000)
+        itemstoragedimensiongroup_name: varchar(8000)
+        itemtrackingdimensiongroupid: varchar(8000)
+        itemtrackingdimensiongroup_name: varchar(8000)
+        batchnumgroupid: varchar(8000)
+        bomcalcgroupid: varchar(8000)
+        commissiongroupid: varchar(8000)
+        costgroupid: varchar(8000)
+        itembuyergroupid: varchar(8000)
+        itempricetolerancegroupid: varchar(8000)
+        packaginggroupid: varchar(8000)
+        pdsfreightallocationgroupid: varchar(8000)
+        pdsitemrebategroupid: varchar(8000)
+        prodgroupid: varchar(8000)
+        itemcoveragegroupid: varchar(8000)
+        serialnumgroupid: varchar(8000)
+        itmarrivalgroupid: varchar(8000)
+        itmoverundertolerancegroupid: varchar(8000)
+        itmcosttypegroupid: varchar(8000)
+        itmcosttransfergroupid: varchar(8000)
+        bomlevel: bigint
+        bomunitid: varchar(8000)
+        defaultdimension: bigint
+        default_businessunit: varchar(8000)
+        netweight: bigint
+        productlifecyclestateid: varchar(8000)
+        salesmodel: bigint
+        speciescode: varchar(8000)
+        mpistate: bigint
+        mpistatecode: varchar(8000)
+        mpistate_desc: varchar(8000)
+        mpiunit: varchar(8000)
+        appliedweight: bigint
+        appliedweight_name: varchar(8000)
+        appliedweight_label: varchar(8000)
+        maximumweight: bigint
+        storagecondition: bigint
+        storagecondition_name: varchar(8000)
+        legacyitemcode: varchar(8000)
+        labelformat: varchar(8000)
+        sizename: varchar(8000)
+        licence: varchar(8000)
+        packagingcode: varchar(8000)
+        packagingshortname: varchar(8000)
+        primarypackagingtype: varchar(8000)
+        masterpackagingtype: varchar(8000)
+        processstatecode: varchar(8000)
+        qualityname: varchar(8000)
+        batchattributegroupid: varchar(8000)
+        is_consignmentitemautopurchinvoice: bigint
+        product: bigint
+        producttype: varchar(8000)
+        whsinventenabled: bigint
+        is_bin: bigint
+        partition: bigint
+        recversion: bigint
+        lastprocessedchange_datetime: datetime2(6)
+        planning_category_l_1: varchar(8000)
+        planning_category_l_2: varchar(8000)
+        planning_category_l_3: varchar(8000)
+        planning_category_l_4: varchar(8000)
+        planning_category_l_5: varchar(8000)
+        planning_category_l_6: varchar(8000)
+        planning_category_l_7: varchar(8000)
+        planning_category_path: varchar(8000)
+        item_group_code: varchar(8000)
+        seafooditem: varchar(8000)
+        sales_type: varchar(8000)
+        sales_target_item_flag: varchar(8000)
+        items_10s20s30s: varchar(8000)
+        latest_transit_unitcost: bigint
+        allocation: varchar(8000)
+        sales_allocation: varchar(8000)
+        IsDelete: bit

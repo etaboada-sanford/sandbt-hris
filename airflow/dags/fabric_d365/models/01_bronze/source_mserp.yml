@@ -1,0 +1,689 @@
+version: 2
+sources:
+- name: mserp
+  schema: dbo
+  database: lh_d365fnodxc
+  description: D365 FNO DXC Virtual Entities from Dataverse
+  tables:
+  - name: dxc_batchattrib
+    columns:
+    - name: mserp_asyncprocess
+      data_type: int
+    - name: mserp_batchattributegroupid
+      data_type: varchar
+    - name: mserp_batchattributegroupname
+      data_type: varchar
+    - name: mserp_batchattributegrouptiming
+      data_type: int
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_batchattributegrouplineattrmappingentityid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_processingdelay
+      data_type: int
+    - name: mserp_sourcebatchattribid
+      data_type: varchar
+    - name: mserp_sourcefieldname
+      data_type: varchar
+    - name: mserp_sourcefieldtype
+      data_type: int
+    - name: mserp_sourcefinancialdimensionattributename
+      data_type: varchar
+    - name: mserp_sourcefixedvalue
+      data_type: varchar
+    - name: mserp_sourcetable
+      data_type: int
+    - name: mserp_targetbatchattribid
+      data_type: varchar
+    - name: mserp_targetfieldname
+      data_type: varchar
+    - name: mserp_targetfieldtype
+      data_type: int
+    - name: mserp_targetupdatetype
+      data_type: int
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_detailsproductionsitebatch
+    columns:
+    - name: mserp_amountcur
+      data_type: decimal
+    - name: mserp_amountmst
+      data_type: decimal
+    - name: mserp_costcenterdimension
+      data_type: varchar
+    - name: mserp_createdledgerjournalid
+      data_type: varchar
+    - name: mserp_currencycode
+      data_type: varchar
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_detailsproductionsitebatchentityid
+      data_type: varchar
+    - name: mserp_exchrate
+      data_type: decimal
+    - name: mserp_invoiceid
+      data_type: varchar
+    - name: mserp_itemidcharge
+      data_type: varchar
+    - name: mserp_linenum
+      data_type: decimal
+    - name: mserp_mainaccountledgerdimensiondisplayvalue
+      data_type: varchar
+    - name: mserp_origin
+      data_type: int
+    - name: mserp_posteddate
+      data_type: datetime2
+    - name: mserp_postingprofile
+      data_type: varchar
+    - name: mserp_postingtype
+      data_type: int
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_productionsitebatchattribvalue
+      data_type: varchar
+    - name: mserp_productionsiteqty
+      data_type: decimal
+    - name: mserp_psbarecid
+      data_type: decimal
+    - name: mserp_psbarecid_bigint
+      data_type: bigint
+    - name: mserp_rebatedealid
+      data_type: varchar
+    - name: mserp_rmpostedamount
+      data_type: decimal
+    - name: mserp_salesid
+      data_type: varchar
+    - name: mserp_saleslinedimensiondisplayvalue
+      data_type: varchar
+    - name: mserp_saleslineqty
+      data_type: decimal
+    - name: mserp_salesunit
+      data_type: varchar
+    - name: mserp_transferid
+      data_type: varchar
+    - name: mserp_type
+      data_type: int
+    - name: mserp_unitprice
+      data_type: decimal
+  - name: dxc_enumstable
+    columns:
+    - name: mserp_dxc_enumstableentityid
+      data_type: varchar
+    - name: mserp_enumitemlabel
+      data_type: varchar
+    - name: mserp_enumitemname
+      data_type: varchar
+    - name: mserp_enumitemvalue
+      data_type: int
+    - name: mserp_enumname
+      data_type: varchar
+    - name: mserp_languageid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_farmlinecage
+    columns:
+    - name: mserp_catchharvestareaid
+      data_type: varchar
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_description
+      data_type: varchar
+    - name: mserp_dxc_farmlinecageentityid
+      data_type: varchar
+    - name: mserp_farmid
+      data_type: varchar
+    - name: mserp_farmlinecageid
+      data_type: varchar
+    - name: mserp_farmtype
+      data_type: int
+    - name: mserp_inventlocationid
+      data_type: varchar
+    - name: mserp_musselcropid
+      data_type: varchar
+    - name: mserp_musselspatsourceid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_projid
+      data_type: varchar
+    - name: mserp_vendor1account
+      data_type: varchar
+    - name: mserp_vendor1percent
+      data_type: decimal
+    - name: mserp_vendor2account
+      data_type: varchar
+    - name: mserp_vendor2percent
+      data_type: decimal
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_greenweightconversion
+    columns:
+    - name: mserp_conversionfactor
+      data_type: decimal
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_greenweightconversionentityid
+      data_type: varchar
+    - name: mserp_fromdate
+      data_type: datetime2
+    - name: mserp_greenweightconversionrecid
+      data_type: decimal
+    - name: mserp_inventsiteid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_speciescode
+      data_type: varchar
+    - name: mserp_statefrom
+      data_type: varchar
+    - name: mserp_stateto
+      data_type: varchar
+    - name: mserp_todate
+      data_type: datetime2
+    - name: mserp_vendaccount
+      data_type: varchar
+    - name: mserp_vendlicencegroupid
+      data_type: varchar
+    - name: mserp_vendorselection
+      data_type: int
+    - name: versionnumber
+      data_type: bigint
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_haultrawl
+    columns:
+    - name: mserp_catchharvestareaid
+      data_type: varchar
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_haultrawlentityid
+      data_type: varchar
+    - name: mserp_faoareaid
+      data_type: varchar
+    - name: mserp_fishinggearid
+      data_type: varchar
+    - name: mserp_haultrawlid
+      data_type: varchar
+    - name: mserp_landedportid
+      data_type: varchar
+    - name: mserp_mscid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_tripid
+      data_type: varchar
+  - name: dxc_packagingconfigurationtable
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_packagingconfigurationentityid
+      data_type: varchar
+    - name: mserp_minimumweight
+      data_type: decimal
+    - name: mserp_name
+      data_type: varchar
+    - name: mserp_packagingcode
+      data_type: varchar
+    - name: mserp_shortname
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_pdsitembatchattributeenumerationvalueentity
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_configid
+      data_type: varchar
+    - name: mserp_dxc_pdsbatchattribenumdescription
+      data_type: varchar
+    - name: mserp_dxc_pdsitembatchattributeenumerationvalueentityid
+      data_type: varchar
+    - name: mserp_dxc_speciescode
+      data_type: varchar
+    - name: mserp_enumerationvalue
+      data_type: varchar
+    - name: mserp_isattributetarget
+      data_type: int
+    - name: mserp_itembatchattributeid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_sequence
+      data_type: int
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_recoverycharges
+    columns:
+    - name: mserp_batchattribvalue01
+      data_type: varchar
+    - name: mserp_batchattribvalue02
+      data_type: varchar
+    - name: mserp_batchattribvalue03
+      data_type: varchar
+    - name: mserp_batchattribvalue04
+      data_type: varchar
+    - name: mserp_catchharvestareaid
+      data_type: varchar
+    - name: mserp_currencycode
+      data_type: varchar
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_datefrom
+      data_type: datetime2
+    - name: mserp_dateto
+      data_type: datetime2
+    - name: mserp_dxc_recoverychargesentityid
+      data_type: varchar
+    - name: mserp_dxc_speciescode
+      data_type: varchar
+    - name: mserp_dxc_statename
+      data_type: varchar
+    - name: mserp_generated
+      data_type: int
+    - name: mserp_inventsiteid
+      data_type: varchar
+    - name: mserp_keep
+      data_type: int
+    - name: mserp_markupcategory
+      data_type: int
+    - name: mserp_markupcode
+      data_type: varchar
+    - name: mserp_markupcurrencycode
+      data_type: varchar
+    - name: mserp_modulecategory
+      data_type: int
+    - name: mserp_moduletype
+      data_type: int
+    - name: mserp_orderaccount
+      data_type: varchar
+    - name: mserp_port
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_recordtype
+      data_type: int
+    - name: mserp_selection
+      data_type: int
+    - name: mserp_speciescode
+      data_type: varchar
+    - name: mserp_statename
+      data_type: varchar
+    - name: mserp_taxgroup
+      data_type: varchar
+    - name: mserp_usesitefindim
+      data_type: int
+    - name: mserp_value
+      data_type: decimal
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_speciestable
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_latinname
+      data_type: varchar
+    - name: mserp_dxc_qmccode
+      data_type: varchar
+    - name: mserp_dxc_quotacontrolled
+      data_type: int
+    - name: mserp_dxc_speciescode
+      data_type: varchar
+    - name: mserp_dxc_speciesentityid
+      data_type: varchar
+    - name: mserp_dxc_speciesname
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_statetable
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_mpiitemdesc
+      data_type: varchar
+    - name: mserp_dxc_mpistate
+      data_type: int
+    - name: mserp_dxc_stateentityid
+      data_type: varchar
+    - name: mserp_dxc_statename
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_triporder
+    columns:
+    - name: mserp_actualenddate
+      data_type: datetime2
+    - name: mserp_actualstartdate
+      data_type: datetime2
+    - name: mserp_catchharvestareaid
+      data_type: varchar
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_departureportid
+      data_type: varchar
+    - name: mserp_description
+      data_type: varchar
+    - name: mserp_dxc_triporderentityid
+      data_type: varchar
+    - name: mserp_equipment
+      data_type: varchar
+    - name: mserp_equipmentrecids
+      data_type: varchar
+    - name: mserp_faoareaid
+      data_type: varchar
+    - name: mserp_farmid
+      data_type: varchar
+    - name: mserp_farmlinecageid
+      data_type: varchar
+    - name: mserp_farmname
+      data_type: varchar
+    - name: mserp_harvestnumber
+      data_type: varchar
+    - name: mserp_inventlocationid
+      data_type: varchar
+    - name: mserp_inventsiteid
+      data_type: varchar
+    - name: mserp_landingdate
+      data_type: datetime2
+    - name: mserp_landingportid
+      data_type: varchar
+    - name: mserp_musselcropid
+      data_type: varchar
+    - name: mserp_musselspatsourceid
+      data_type: varchar
+    - name: mserp_projid
+      data_type: varchar
+    - name: mserp_purchid
+      data_type: varchar
+    - name: mserp_schedenddate
+      data_type: datetime2
+    - name: mserp_schedstartdate
+      data_type: datetime2
+    - name: mserp_transferid
+      data_type: varchar
+    - name: mserp_transferoffloadwarehouse
+      data_type: varchar
+    - name: mserp_tripdocketnumber
+      data_type: varchar
+    - name: mserp_tripid
+      data_type: varchar
+    - name: mserp_triptypeid
+      data_type: varchar
+    - name: mserp_vendaccount
+      data_type: varchar
+    - name: mserp_vesselid
+      data_type: varchar
+    - name: mserp_vesselname
+      data_type: varchar
+    - name: mserp_yeartripnum
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_triporderline
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_triporderlineentityid
+      data_type: varchar
+    - name: mserp_itemid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_qty
+      data_type: decimal
+    - name: mserp_tripid
+      data_type: varchar
+    - name: mserp_unitofmeasure
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_triptype
+    columns:
+    - name: mserp_allowpurchreceiptingbeforequotacomplete
+      data_type: int
+    - name: mserp_autocompleteorder
+      data_type: int
+    - name: mserp_autocompletepricing
+      data_type: int
+    - name: mserp_autocompletequota
+      data_type: int
+    - name: mserp_autopostreceipt
+      data_type: int
+    - name: mserp_categoryrecid
+      data_type: decimal
+    - name: mserp_categoryrecid_bigint
+      data_type: bigint
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_description
+      data_type: varchar
+    - name: mserp_dxc_triptypeentityid
+      data_type: varchar
+    - name: mserp_farmtype
+      data_type: int
+    - name: mserp_triptypeid
+      data_type: varchar
+    - name: mserp_useforecastquantity
+      data_type: int
+    - name: IsDelete
+      data_type: varchar
+  - name: dxc_vessel
+    columns:
+    - name: mserp_createlinkedproductionorders
+      data_type: int
+    - name: mserp_createproductionorders
+      data_type: int
+    - name: mserp_createpurchaseorder
+      data_type: int
+    - name: mserp_createtransferorder
+      data_type: int
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_defaultdepartureportid
+      data_type: varchar
+    - name: mserp_dxc_vesselentityid
+      data_type: varchar
+    - name: mserp_equipment
+      data_type: varchar
+    - name: mserp_equipmentrecids
+      data_type: varchar
+    - name: mserp_faoareaid
+      data_type: varchar
+    - name: mserp_inventlocationid
+      data_type: varchar
+    - name: mserp_sanfordvessel
+      data_type: int
+    - name: mserp_tripidnumbersequencecode
+      data_type: varchar
+    - name: mserp_triptypeid
+      data_type: varchar
+    - name: mserp_vendaccount
+      data_type: varchar
+    - name: mserp_vesselcallsign
+      data_type: varchar
+    - name: mserp_vesselid
+      data_type: varchar
+    - name: mserp_vesselname
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: hcmjob
+    columns: []
+  - name: ledgerconsolidatehist
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_ledgerconsolidatehistrefbientityid
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_refrecid
+      data_type: decimal
+    - name: mserp_refrecid_bigint
+      data_type: bigint
+    - name: mserp_sourcekey
+      data_type: decimal
+    - name: mserp_sourcekey_bigint
+      data_type: bigint
+    - name: mserp_sysdataareaid
+      data_type: varchar
+    - name: mserp_sysrecversion
+      data_type: int
+    - name: mserp_sysrowversion
+      data_type: decimal
+    - name: mserp_sysrowversion_bigint
+      data_type: bigint
+    - name: mserp_transrecid
+      data_type: decimal
+    - name: mserp_transrecid_bigint
+      data_type: bigint
+    - name: mserp_transtableid
+      data_type: int
+    - name: msft_datastate
+      data_type: int
+    - name: versionnumber
+      data_type: bigint
+    - name: IsDelete
+      data_type: varchar
+  - name: tmsfbdetailreconcile
+    columns:
+    - name: mserp_amount
+      data_type: decimal
+    - name: mserp_autoreconciled
+      data_type: int
+    - name: mserp_currentsession
+      data_type: int
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_tmsfbdetailreconcileentityid
+      data_type: varchar
+    - name: mserp_freightbilldetailrecid
+      data_type: decimal
+    - name: mserp_freightbilldetailrecid_bigint
+      data_type: bigint
+    - name: mserp_freightreasoncode
+      data_type: varchar
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar
+  - name: tmsfbinvmatch
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_tmsfbinvmatchentityid
+      data_type: varchar
+    - name: mserp_freightbilldetailrecid
+      data_type: decimal
+    - name: mserp_freightbilldetailrecid_bigint
+      data_type: bigint
+    - name: mserp_invoicelinerecid
+      data_type: decimal
+    - name: mserp_invoicelinerecid_bigint
+      data_type: bigint
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: mserp_ratecur
+      data_type: decimal
+    - name: mserp_workflowstatus
+      data_type: int
+    - name: IsDelete
+      data_type: varchar
+  - name: tmsfreightbillmarkuptrans
+    columns:
+    - name: mserp_dataareaid
+      data_type: varchar
+    - name: mserp_dataareaid_id
+      data_type: varchar
+    - name: mserp_dataareaid_idname
+      data_type: varchar
+    - name: mserp_dxc_tmsfreightbillmarkuptransentityid
+      data_type: varchar
+    - name: mserp_freightbilldetailrecid
+      data_type: decimal
+    - name: mserp_freightbilldetailrecid_bigint
+      data_type: bigint
+    - name: mserp_freightbilldetailtableid
+      data_type: int
+    - name: mserp_markuptransrecid
+      data_type: decimal
+    - name: mserp_markuptransrecid_bigint
+      data_type: bigint
+    - name: mserp_markuptranstableid
+      data_type: int
+    - name: mserp_primaryfield
+      data_type: varchar
+    - name: IsDelete
+      data_type: varchar

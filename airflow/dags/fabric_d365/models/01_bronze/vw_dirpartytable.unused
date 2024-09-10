@@ -1,0 +1,189 @@
+{{ config(
+    materialized = 'view',
+    tags = ['fno_derived_table']
+) }}
+
+select
+    dirpartytable.recid
+    , dirpartytable.addressbooknames
+    , dirpartytable.instancerelationtype
+    , dirpartytable.knownas
+    , dirpartytable.languageid
+    , dirpartytable.legacyinstancerelationtype
+    , dirpartytable.name
+    , dirpartytable.namealias
+    , dirpartytable.partynumber
+    , dirpartytable.primaryaddresslocation
+    , dirpartytable.primarycontactemail
+    , dirpartytable.primarycontactfacebook
+    , dirpartytable.primarycontactfax
+    , dirpartytable.primarycontactlinkedin
+    , dirpartytable.primarycontactphone
+    , dirpartytable.primarycontacttelex
+    , dirpartytable.primarycontacttwitter
+    , dirpartytable.primarycontacturl
+    , dirpartytable.createddatetime
+    , dirpartytable.createdby
+    , dirpartytable.modifieddatetime
+    , dirpartytable.modifiedby
+    , dirpartytable.partition
+    , dirpartytable.IsDelete
+    , companyinfo.accountant_lt
+    , companyinfo.accountingpersonnel_jp
+    , companyinfo.accountofficerefnum
+    , companyinfo.activitycode
+    , companyinfo.addrformat
+    , companyinfo.bank
+    , companyinfo.bankacctusedfor1099
+    , companyinfo.bankcentralbankpurposecode
+    , companyinfo.bankcentralbankpurposetext
+    , companyinfo.branchid
+    , companyinfo.businessactivity_sa
+    , companyinfo.businessactivitydesc_sa
+    , companyinfo.businesscommenceddate_jp
+    , companyinfo.businessinitialcapital_jp
+    , companyinfo.businessitem_jp
+    , companyinfo.businessnumber_ca
+    , companyinfo.certifiedtaxaccountant_jp
+    , companyinfo.cnae_br
+    , companyinfo.combinedfedstatefiler
+    , companyinfo.companyinitialcapital_fr
+    , companyinfo.companynafcode
+    , companyinfo.companyregcomfr
+    , companyinfo.companyrepresentative_jp
+    , companyinfo.companytype_mx
+    , companyinfo.conversiondate
+    , companyinfo.coregnum
+    , companyinfo.cuc_it
+    , companyinfo.curp_mx
+    , companyinfo.dashboardimagetype
+    , companyinfo.dataarea
+    , companyinfo.dba
+    , companyinfo.declarantname_ae
+    , companyinfo.dvrid
+    , companyinfo.ecl_iscompanycolor
+    , companyinfo.ecl_showreciprocalexchangerate
+    , companyinfo.ecl_theme
+    , companyinfo.eeenablepersonaldatareadlog
+    , companyinfo.eeenablerolechangelog
+    , companyinfo.enterprisecode
+    , companyinfo.ficreditorid_dk
+    , companyinfo.filenumber_sa
+    , companyinfo.fiscalcode_it
+    , companyinfo.foreignentityindicator
+    , companyinfo.fss_ru
+    , companyinfo.fssaccount_ru
+    , companyinfo.giro
+    , companyinfo.girocontract
+    , companyinfo.girocontractaccount
+    , companyinfo.head_lt
+    , companyinfo.importvatnum
+    , companyinfo.importvatnumbranchid
+    , companyinfo.intrastatcode
+    , companyinfo.isconsolidationcompany
+    , companyinfo.iseliminationcompany
+    , companyinfo.issuingsignature
+    , companyinfo.key
+    , companyinfo.lastfilingindicator
+    , companyinfo.legalformfr
+    , companyinfo.legalnature_it
+    , companyinfo.legalrepresentative_jp
+    , companyinfo.legalrepresentativecurp_mx
+    , companyinfo.legalrepresentativename_mx
+    , companyinfo.legalrepresentativerfc_mx
+    , companyinfo.localizationcountryregioncode
+    , companyinfo.naics
+    , companyinfo.namecontrol
+    , companyinfo.organizationlegalform_ru
+    , companyinfo.orgid
+    , companyinfo.packmaterialfeelicensenum
+    , companyinfo.payminstruction1
+    , companyinfo.payminstruction2
+    , companyinfo.payminstruction3
+    , companyinfo.payminstruction4
+    , companyinfo.paymroutingdnb
+    , companyinfo.paymtradernumber
+    , companyinfo.personincharge_jp
+    , companyinfo.pfregnum_ru
+    , companyinfo.planningcompany
+    , companyinfo.printcorrinvoicelabel_de
+    , companyinfo.printcorrinvoicelabeleffdate_de
+    , companyinfo.printenterpriseregister_no
+    , companyinfo.printinnkppinaddress_ru
+    , companyinfo.privacyconsent_dk
+    , companyinfo.profitmarginscheme_ae
+    , companyinfo.raliencorpcountry
+    , companyinfo.raliencorpname
+    , companyinfo.regnum
+    , companyinfo.resident_w
+    , companyinfo.rfc_mx
+    , companyinfo.rfullname
+    , companyinfo.shippingcalendarid
+    , companyinfo.siacode
+    , companyinfo.softwareidentificationcode_ca
+    , companyinfo.stateinscription_mx
+    , companyinfo.subordinatecode
+    , companyinfo.tax1099regnum
+    , companyinfo.taxableagencyname_ae
+    , companyinfo.taxableagentname_ae
+    , companyinfo.taxablepersonname_ae
+    , companyinfo.taxauthority_ru
+    , companyinfo.taxgsthstaccountid_ca
+    , companyinfo.taxregimecode_mx
+    , companyinfo.taxrepresentative
+    , companyinfo.tcc
+    , companyinfo.templatefolder_w
+    , companyinfo.upsnum
+    , companyinfo.validate1099onentry
+    , companyinfo.vatnum
+    , companyinfo.vatnumbranchid
+    , companyinfo.vatoncustomerbehalf_ae
+    , companyinfo.vatrefund_ae
+    , dirorganization.abc
+    , dirorganization.numberofemployees
+    , dirorganization.orgnumber
+    , dirorganizationbase.dunsnumberrecid
+    , dirorganizationbase.phoneticname
+    , dirperson.anniversaryday
+    , dirperson.anniversarymonth
+    , dirperson.anniversaryyear
+    , dirperson.birthday
+    , dirperson.birthmonth
+    , dirperson.birthyear
+    , dirperson.childrennames
+    , dirperson.communicatorsignin
+    , dirperson.gender
+    , dirperson.hobbies
+    , dirperson.initials
+    , dirperson.maritalstatus
+    , dirperson.namesequence
+    , dirperson.personalsuffix
+    , dirperson.personaltitle
+    , dirperson.phoneticfirstname
+    , dirperson.phoneticlastname
+    , dirperson.phoneticmiddlename
+    , dirperson.professionalsuffix
+    , dirperson.professionaltitle
+    , ominternalorganization.organizationtype
+    , omoperatingunit.hcmworker
+    , omoperatingunit.omoperatingunitnumber
+    , omoperatingunit.omoperatingunittype
+    , omteam.description
+    , omteam.isactive
+    , omteam.teamadministrator
+    , omteam.teammembershipcriterion
+from {{ source('fno', 'dirpartytable') }} as dirpartytable
+left outer join {{ source('fno', 'companyinfo') }} as companyinfo
+    on dirpartytable.recid = companyinfo.recid
+left outer join {{ source('fno', 'dirorganization') }} as dirorganization
+    on dirpartytable.recid = dirorganization.recid
+left outer join {{ source('fno', 'dirorganizationbase') }} as dirorganizationbase
+    on dirpartytable.recid = dirorganizationbase.recid
+left outer join {{ source('fno', 'dirperson') }} as dirperson
+    on dirpartytable.recid = dirperson.recid
+left outer join {{ source('fno', 'ominternalorganization') }} as ominternalorganization
+    on dirpartytable.recid = ominternalorganization.recid
+left outer join {{ source('fno', 'omoperatingunit') }} as omoperatingunit
+    on dirpartytable.recid = omoperatingunit.recid
+left outer join {{ source('fno', 'omteam') }} as omteam
+    on dirpartytable.recid = omteam.recid;

@@ -1,0 +1,30 @@
+{{ config(
+    materialized = 'view',
+    tags = ['fno_derived_table']
+) }}
+
+select
+    ecoresproduct.displayproductnumber
+    , ecoresproduct.engchgproductcategorydetails
+    , ecoresproduct.engchgproductownerid
+    , ecoresproduct.engchgproductreadinesspolicy
+    , ecoresproduct.engchgproductreleasepolicy
+    , ecoresproduct.instancerelationtype
+    , ecoresproduct.pdscwproduct
+    , ecoresproduct.producttype
+    , ecoresproduct.searchname
+    , ecoresproduct.servicetype
+    , ecoresdistinctproductvariant.productmaster
+    , ecoresdistinctproductvariant.retaitotalweight
+    , ecoresproductmaster.isproductvariantunitconversionenabled
+    , ecoresproductmaster.retailcolorgroupid
+    , ecoresproductmaster.retailsizegroupid
+    , ecoresproductmaster.retailstylegroupid
+    , ecoresproductmaster.variantconfigurationtechnology
+from ecoresproduct as ecoresproduct
+left outer join ecoresdistinctproduct as ecoresdistinctproduct
+    on ecoresproduct.recid = ecoresdistinctproduct.recid
+left outer join ecoresdistinctproductvariant as ecoresdistinctproductvariant
+    on ecoresproduct.recid = ecoresdistinctproductvariant.recid
+left outer join ecoresproductmaster as ecoresproductmaster
+    on ecoresproduct.recid = ecoresproductmaster.recid

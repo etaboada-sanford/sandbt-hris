@@ -1,0 +1,11 @@
+fabric_d365:
+  outputs:
+    dev:
+      authentication: CLI
+      database: dwh_sanford
+      driver: ODBC Driver 18 for SQL Server
+      host: b27nglr6dgderlhlbqidfj2kge-pwo43isi2ezetbspsg37pqmaqa.datawarehouse.fabric.microsoft.com
+      schema: dbo
+      threads: 4
+      type: fabric
+  target: dev

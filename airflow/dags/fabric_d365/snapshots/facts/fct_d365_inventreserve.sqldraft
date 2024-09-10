@@ -1,0 +1,34 @@
+select 
+
+{{ dbt_utils.generate_surrogate_key(['w.recid'])}} as fact_inventreserve_sk,
+c.dim_d365_company_sk,
+i.dim_d365_item_sk,
+wh.dim_d365_warehouse_sk,
+s.dim_d365_inventserial_sk,
+st.dim_d365_site_sk,
+lp.dim_d365_licenseplate_sk,
+wl.dim_d365_warehouselocation_sk,
+id.dim_d365_inventdim_sk,
+pid.dim_d365_inventdim_sk dim_d365_inventdim_parent_sk,
+ibt.dim_d365_inventbatch_sk,
+w.availordered,
+w.availphysical,
+w.hierarchylevel,
+w.reservordered,
+w.reservphysical,
+upper(w.dataareaid) dataareaid,
+w.partition,
+w.is_deleted
+
+from {{ source('fno', 'whsinventreserve')}} w
+
+left join {{ref('dim_d365_company')}} c on upper(w.dataareaid) = c.company_dataarea
+left join {{ref('dim_d365_item')}} i on w.itemid = i.itemid and upper(w.dataareaid) = upper(i.item_dataareaid)
+left join {{ref('dim_d365_site')}} st on w.inventsiteid = st.siteid and upper(w.dataareaid) = upper(st.site_dataareaid)
+left join {{ref('dim_d365_warehouse')}} wh on w.inventlocationid = wh.warehouseid and upper(w.dataareaid) = upper(wh.warehouse_dataareaid)
+left join {{ref('dim_d365_warehouselocation')}} wl on w.wmslocationid = wl.warehouselocationid and upper(w.dataareaid) = upper(wl.warehouselocation_dataareaid) and  w.inventlocationid = wl.warehouseid
+left join {{ref('dim_d365_inventserial')}} s on upper(w.inventserialid) = s.inventserialid and upper(w.dataareaid) = upper(s.inventserial_dataareaid) and w.itemid  = s.itemid
+left join {{ref('dim_d365_licenseplate')}} lp on w.licenseplateid = lp.licenseplateid and upper(w.dataareaid) = upper(lp.licenseplate_dataareaid)
+left join {{ref('dim_d365_inventdim')}} id on w.inventdimid = id.inventdimid and upper(w.dataareaid) = upper(id.inventdim_dataareaid)
+left join {{ref('dim_d365_inventdim')}} pid on w.parentinventdimid = pid.inventdimid and upper(w.dataareaid) = upper(pid.inventdim_dataareaid)
+left join {{ref('dim_d365_inventbatch')}} ibt on upper(w.inventbatchid) = ibt.inventbatchid and upper(w.dataareaid) = upper(ibt.inventbatch_dataareaid) and w.itemid  = ibt.itemid
