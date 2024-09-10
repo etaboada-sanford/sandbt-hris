@@ -67,7 +67,7 @@ with DAG(
     # Define the tasks
     ls_dbt_debug_task = BashOperator(
         task_id='ls_dbt_debug_task',
-        bash_command='pip list'
+        bash_command='pip install -r $AIRFLOW__CORE__DAGS_FOLDER/requirements.txt'
     )
 
     # Set the task dependencies
