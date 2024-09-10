@@ -55,7 +55,7 @@ with DAG(
     # Define the tasks
     ls_echo_dagsfolder_task = BashOperator(
         task_id='ls_echo_dagsfolder_task',
-        bash_command='echo $DAGS_FOLDER'
+        bash_command='ls /opt/airflow/git/sandbt-hris.git/dags'
     )
 
     # Define the tasks
