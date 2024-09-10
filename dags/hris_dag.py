@@ -57,10 +57,10 @@ with DAG(
         task_id='ls_echo_dagsfolder_task',
         bash_command='echo $DAGS_FOLDER'
     )
-    
+
     # Define the tasks
     ls_echo_dagsfolder2_task = BashOperator(
-        task_id='ls_echo_dagsfolder_task',
+        task_id='ls_echo_dagsfolder2_task',
         bash_command='echo $AIRFLOW__CORE__DAGS_FOLDER'
     )
 
