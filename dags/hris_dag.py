@@ -21,11 +21,24 @@ with DAG(
     catchup=False
 ) as dag:
 
+
     # Define the tasks
-    outer_task = BashOperator(
-        task_id='outer_ls_task',
+    pwd_task = BashOperator(
+        task_id='pwd_task',
+        bash_command='pwd'
+    )
+
+    # Define the tasks
+    ls_task = BashOperator(
+        task_id='ls_task',
         bash_command='ls'
     )
 
+    # Define the tasks
+    ls_airflow_task = BashOperator(
+        task_id='ls_airflow_task',
+        bash_command='ls /opt/airflow'
+    )
+
     # Set the task dependencies
-    outer_task
+    pwd_task > ls_task > ls_airflow_task
