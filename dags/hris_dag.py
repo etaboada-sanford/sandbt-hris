@@ -65,10 +65,28 @@ with DAG(
     )
 
     # Define the tasks
-    ls_dbt_debug_task = BashOperator(
-        task_id='ls_dbt_debug_task',
+    ls_pip_list_task = BashOperator(
+        task_id='ls_pip_list_task',
+        bash_command='pip list'
+    )
+
+    # Define the tasks
+    ls_pip_install_task = BashOperator(
+        task_id='ls_pip_install_task',
         bash_command='pip install -r $AIRFLOW__CORE__DAGS_FOLDER/requirements.txt'
     )
 
+    # Define the tasks
+    cd_fabric_d365_task = BashOperator(
+        task_id='cd_fabric_d365_task',
+        bash_command='cd $AIRFLOW__CORE__DAGS_FOLDER/fabric_d365'
+    )
+
+    # Define the tasks
+    dbt_debug_task = BashOperator(
+        task_id='dbt_debug_task',
+        bash_command='dbt debg'
+    )
+
     # Set the task dependencies
-    ls_airflow_dags_task >> ls_echo_dagsfolder_task >> ls_cd_dagsfolder_task >> ls_dbt_debug_task
+    ls_airflow_dags_task >> ls_echo_dagsfolder_task >> ls_cd_dagsfolder_task >> ls_pip_list_task >> cd_fabric_d365_task >> dbt_debug_task
